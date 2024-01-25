@@ -16,61 +16,73 @@ paths:
           description: Room update parameters
           required: true
           schema:
-            $ref: '#/definitions/RoomUpdate'
+            type: object
+            properties:
+              room_id:
+                type: string
+                description: The ID of the room to be updated
+              new_name:
+                type: string
+                description: The new name for the room
+              add_member:
+                type: array
+                items:
+                  type: integer
+                description: An array of user IDs to be added to the room
+              remove_member:
+                type: array
+                items:
+                  type: integer
+                description: An array of user IDs to be removed from the room
       responses:
-        '200':
+        200:
           description: Successful update
           schema:
-            $ref: '#/definitions/SuccessResponse'
-        '400':
+            type: object
+            properties:
+              status:
+                type: integer
+                example: 200
+              message:
+                type: string
+                example: Update Room Info successfully
+              data:
+                type: object
+                properties:
+                  doc:
+                    $ref: '#/definitions/Room'
+        400:
           description: Invalid request body
           schema:
-            $ref: '#/definitions/ErrorResponse'
-        '404':
+            $ref: '#/definitions/Error'
+        404:
           description: Room not found
           schema:
-            $ref: '#/definitions/ErrorResponse'
-        '500':
+            $ref: '#/definitions/Error'
+        500:
           description: Internal Server Error
           schema:
-            $ref: '#/definitions/ErrorResponse'
+            $ref: '#/definitions/Error'
 definitions:
-  RoomUpdate:
+  Room:
     type: object
     properties:
-      room_id:
+      name:
         type: string
-        description: The ID of the room to be updated
-      new_name:
-        type: string
-        description: The new name for the room
-      add_member:
-        type: array
-        items:
-          type: integer
-        description: An array of user IDs to be added to the room
-      remove_member:
-        type: array
-        items:
-          type: integer
-        description: An array of user IDs to be removed from the room
-
-  SuccessResponse:
-    type: object
-    properties:
-      status:
+      creator:
         type: integer
-        example: 200
-      message:
+      xcode:
         type: string
-        example: Update Room Info successfully
-      data:
-        type: object
-        properties:
-          doc:
-            $ref: '#/definitions/Room'
-
-  ErrorResponse:
+      room_type:
+        type: string
+      member:
+        type: array
+        items:
+          type: integer
+      is_deleted:
+        type: boolean
+        default: false
+  Error:
     type: object
     properties:
       status:
