@@ -62,6 +62,7 @@ type PrintItem =
 // async function print(items: PrintItem[], feedAfterPrint?: number): Promise<void> {
 //   // Logic của bạn để kết nối, gửi lệnh in tuần tự, và gọi performPrint sẽ ở đây
 // } 
+```
 
 ## Cách tạo các `PrintItem` cụ thể:
 
