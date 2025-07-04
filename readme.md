@@ -23,7 +23,7 @@ Bạn cần định nghĩa các interface TypeScript sau trong project của mì
 ```typescript
 // Định nghĩa các interface Options cho từng loại PrintItem
 interface TextPrintOptions {
-  fontSize?: 16 | 24 | 32 | 48; // Kích thước font (theo SDK)
+  fontSize?: any | 16 | 24 | 32 | 48; // Kích thước font (theo SDK)
 }
 
 interface QRCodePrintOptions {
