@@ -7,8 +7,7 @@
 *   `'text'`: In văn bản.
 *   `'qrCode'`: In mã QR.
 *   `'barCode'`: In mã vạch.
-*   `'blankLines'`: In một số dòng trống với chiều cao tùy chỉnh.
-*   `'feedPaper'`: Đẩy giấy một số dòng theo chiều cao dòng chuẩn.
+*   `'blankLines'`: In một số dòng trống với chiều cao tùy chỉnh. 
 *   `'cut'`: Cắt giấy sau khi in, lưu ý việc cắt giấy sẽ bị giới hạn ở các thiết bị
 
 ## Các giá trị `align` được hỗ trợ (dưới dạng chuỗi, tùy chọn):
@@ -147,13 +146,7 @@ const blankLinesItem: PrintItem = {
   type: 'blankLines',
   options: { lines: 3, heightPerLine: 16 } // 3 dòng trống, mỗi dòng cao 16 pixel
 };
-```
-
-### 5. Đẩy Giấy (type: `'feedPaper'`)
-*   **`type`**: `'feedPaper'`
-*   **`options`** (bắt buộc) `FeedPaperPrintOptions`:
-    *   `lines`: Số dòng giấy cần đẩy.
-*   `content` và `align` không áp dụng cho loại này.
+``` 
 
 **Ví dụ:**
 ```typescript
@@ -186,8 +179,7 @@ const receiptData: PrintItem[] = [
   { type: 'barCode', content: "HD00120231027", align: 'center', options: { symbology: 8, height: 4, width: 2, textPosition: 0 } },
   { type: 'blankLines', options: { lines: 1, heightPerLine: 10 } },
   { type: 'qrCode', content: "Cảm ơn quý khách!", align: 'center', options: { moduleSize: 4 } },
-  { type: 'text', content: "Hẹn gặp lại!", align: 'center', options: { fontSize: 16 } },
-  { type: 'feedPaper', options: { lines: 5 } }, // Đẩy giấy ở cuối để dễ xé
+  { type: 'text', content: "Hẹn gặp lại!", align: 'center', options: { fontSize: 16 } }, 
   {type: 'cut'}
 ];
 
