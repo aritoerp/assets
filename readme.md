@@ -9,6 +9,7 @@
 *   `'barCode'`: In mã vạch.
 *   `'blankLines'`: In một số dòng trống với chiều cao tùy chỉnh.
 *   `'feedPaper'`: Đẩy giấy một số dòng theo chiều cao dòng chuẩn.
+*   `'cut'`: Cắt giấy sau khi in, lưu ý việc cắt giấy sẽ bị giới hạn ở các thiết bị
 
 ## Các giá trị `align` được hỗ trợ (dưới dạng chuỗi, tùy chọn):
 
@@ -186,7 +187,8 @@ const receiptData: PrintItem[] = [
   { type: 'blankLines', options: { lines: 1, heightPerLine: 10 } },
   { type: 'qrCode', content: "Cảm ơn quý khách!", align: 'center', options: { moduleSize: 4 } },
   { type: 'text', content: "Hẹn gặp lại!", align: 'center', options: { fontSize: 16 } },
-  { type: 'feedPaper', options: { lines: 5 } } // Đẩy giấy ở cuối để dễ xé
+  { type: 'feedPaper', options: { lines: 5 } }, // Đẩy giấy ở cuối để dễ xé
+  {type: 'cut'}
 ];
 
 // Gọi hàm print bạn đã tự viết với dữ liệu trên
