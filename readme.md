@@ -42,11 +42,10 @@ interface BlankLinesPrintOptions {
   lines: number; // Số dòng trống (tối đa 100 theo SDK)
   heightPerLine: number; // Chiều cao của mỗi dòng trống (đơn vị: Pixel)
 }
-
-interface FeedPaperPrintOptions {
-  lines: number; // Số dòng giấy cần đẩy
+interface CutPrintOptions {
+  value: boolean; // Có cắt hay không  
 }
-
+ 
 // Định nghĩa kiểu cho giá trị căn lề
 type PrintItemAlign = 'left' | 'center' | 'right';
 
@@ -180,7 +179,7 @@ const receiptData: PrintItem[] = [
   { type: 'blankLines', options: { lines: 1, heightPerLine: 10 } },
   { type: 'qrCode', content: "Cảm ơn quý khách!", align: 'center', options: { moduleSize: 4 } },
   { type: 'text', content: "Hẹn gặp lại!", align: 'center', options: { fontSize: 16 } }, 
-  {type: 'cut'}
+  {type: 'cut', options: { value: true } }
 ];
 
 // Gọi hàm print bạn đã tự viết với dữ liệu trên
